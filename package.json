@@ -1,13 +1,13 @@
 {
   "name": "rjmp-cli",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "wx-miniprogram,wx-miniapp",
   "keywords": [
     "wx-miniprogram",
     "wx-miniapp"
   ],
-  "author": "RainJoy <1490079545@qq.com>",
   "private": false,
+  "author": "RainJoy <1490079545@qq.com>",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:zhouyu1993/rjmp-cli.git"
@@ -16,16 +16,25 @@
     "url": "https://github.com/zhouyu1993/rjmp-cli/issues",
     "email": "1490079545@qq.com"
   },
+  "homepage": "https://zhouyu1993.github.io",
   "license": "MIT",
   "bin": {
-    "rjmp": "./index.js"
+    "rjmp": "index.js"
   },
+  "main": "index.js",
   "files": [
-    "utils",
-    "index.js"
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "bin"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "babel src -d bin"
+  },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.1.5",
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "download-git-repo": "^1.1.0",
@@ -34,9 +43,14 @@
     "log-symbols": "^2.2.0",
     "ora": "^3.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6"
+  },
   "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
+    "node": "8.x",
+    "npm": "5.x"
   }
 }

@@ -8,6 +8,7 @@ module.exports = function render (data) {
       `${data.name}/package.json`,
       `${data.name}/README.md`,
       `${data.name}/src/project.config.json`,
+      `${data.name}/src/app.json`,
       `${data.name}/src/utils/constants.js`,
       `${data.name}/src/lib/ald/ald-stat-conf.js`,
     ]

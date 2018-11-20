@@ -1,10 +1,8 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 require("core-js/modules/es6.function.name");
 
-var _fs = _interopRequireDefault(require("fs"));
+var fs = require('fs');
 
 var commander = require('commander');
 
@@ -32,7 +30,7 @@ commander.version(pkg.version, '-v, --version').command('init <name>').action(fu
     return;
   }
 
-  if (_fs.default.existsSync(name)) {
+  if (fs.existsSync(name)) {
     log(logSymbols.error, chalk.red("Destination path '".concat(data.name, "' already exists.")));
   } else {
     inquirer.prompt([
@@ -94,6 +92,10 @@ commander.version(pkg.version, '-v, --version').command('init <name>').action(fu
         name: 'Yes, use Yarn',
         value: 'yarn',
         short: 'yarn'
+      }, {
+        name: 'Yes, use cnpm',
+        value: 'cnpm',
+        short: 'cnpm'
       }, {
         name: 'No, I will handle that myself',
         value: false,

@@ -1,4 +1,4 @@
-import fs from 'fs'
+const fs = require('fs')
 
 const commander = require('commander')
 const downloadGitPepo = require('download-git-repo')
@@ -16,8 +16,9 @@ const log = console.log
 const pkg = require('../package.json')
 
 commander.version(pkg.version, '-v, --version')
-.command('init <name>')
-.action((name) => {
+.command('init <name> [repository]')
+.action((name, repository) => {
+  console.log(repository)
   if (!/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(name)) {
     log(logSymbols.error, chalk.red('Name contains illegal characters'))
 
@@ -98,6 +99,11 @@ commander.version(pkg.version, '-v, --version')
             short: 'yarn',
           },
           {
+            name: 'Yes, use cnpm',
+            value: 'cnpm',
+            short: 'cnpm',
+          },
+          {
             name: 'No, I will handle that myself',
             value: false,
             short: 'no',
@@ -110,7 +116,7 @@ commander.version(pkg.version, '-v, --version')
       const spinner = ora('Downloading templates...')
       spinner.start()
 
-      downloadGitPepo('zhouyu1993/rjmp-template', data.name, { clone: false, }, (err) => {
+      downloadGitPepo(repository || 'zhouyu1993/rjmp-template', data.name, { clone: false, }, (err) => {
         if (err) {
           spinner.fail()
 

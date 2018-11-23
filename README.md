@@ -50,6 +50,14 @@ rjmp init <name> [repository]
 
   后期考虑针对不同模版，开放 `src/render.js` 中模版文件渲染列表。
 
+例如：
+
+``` bash
+rjmp init demo
+```
+
+会初始化一个名为 `demo` 的项目，其结构和默认框架 `zhouyu1993/rjmp-template` 一样。
+
 ## dependencies
 
 fs + path + child_process

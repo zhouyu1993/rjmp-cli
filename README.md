@@ -1,7 +1,5 @@
 # rimp-cli
 
-Author: [RainJoy](https://zhouyu1993.github.io)
-
 [rjmp-cli](https://www.npmjs.com/package/rjmp-cli) 是最近学习着做的，一个微信小程序框架的 cli 工具。
 
 框架结构以及模板语法与原生小程序几乎一模一样，更加贴近原生态，减少新手的学习成本。
@@ -13,6 +11,10 @@ Author: [RainJoy](https://zhouyu1993.github.io)
 利用 compiler.js (参考 wepy) 配合 gulp 进行 js 处理，可随意引用 npm 包，利用 babel 可以畅写 ES6。
 
 希望大家提意见！提 issues ！
+
+[README](https://github.com/zhouyu1993/rjmp-cli/blob/master/README.md)
+
+[RainJoy](https://zhouyu1993.github.io)
 
 ## Installation
 

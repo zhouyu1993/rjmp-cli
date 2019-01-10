@@ -50,7 +50,7 @@
     "@babel/preset-env": "^7.2.3"
   },
   "engines": {
-    "node": "8.x",
-    "npm": "5.x"
+    "node": "8.14.0",
+    "npm": "^6.4.1"
   }
 }

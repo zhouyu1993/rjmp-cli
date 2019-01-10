@@ -26,7 +26,8 @@ var log = console.log;
 
 var pkg = require('../package.json');
 
-commander.version(pkg.version, '-v, --version').command('init <name> [repository]').action(function (name, repository) {
+commander.version(pkg.version, '-v, --version');
+commander.command('init <name> [repository]').action(function (name, repository) {
   if (!/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(name.replace(/-/g, ''))) {
     log(logSymbols.error, chalk.red('Name contains illegal characters'));
     return;
@@ -131,3 +132,9 @@ commander.version(pkg.version, '-v, --version').command('init <name> [repository
   }
 });
 commander.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+  commander.outputHelp(function (txt) {
+    return chalk.green(txt);
+  });
+}

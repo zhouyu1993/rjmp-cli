@@ -112,7 +112,7 @@ commander.version(pkg.version, '-v, --version')
     ]).then(data => {
       // Use user feedback for... whatever!!
 
-      repositoryUrl = repository || 'zhouyu1993/rjmp-template'
+      const repositoryUrl = repository || 'zhouyu1993/rjmp-template'
 
       const spinner = ora(`Downloading template... ${repositoryUrl}\n`)
       spinner.start()

@@ -105,7 +105,7 @@ commander.version(pkg.version, '-v, --version').command('init <name> [repository
       }]
     }]).then(function (data) {
       // Use user feedback for... whatever!!
-      repositoryUrl = repository || 'zhouyu1993/rjmp-template';
+      var repositoryUrl = repository || 'zhouyu1993/rjmp-template';
       var spinner = ora("Downloading template... ".concat(repositoryUrl, "\n"));
       spinner.start();
 

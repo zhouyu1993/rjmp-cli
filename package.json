@@ -1,6 +1,6 @@
 {
   "name": "rjmp-cli",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "wx-miniprogram,wx-miniapp",
   "keywords": [
     "wx-miniprogram",
@@ -33,21 +33,21 @@
     "build": "babel src -d bin"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
-    "@babel/runtime": "^7.1.5",
-    "chalk": "^2.4.1",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/runtime": "^7.2.0",
+    "chalk": "^2.4.2",
     "commander": "^2.19.0",
     "download-git-repo": "^1.1.0",
     "handlebars": "^4.0.12",
-    "inquirer": "^6.2.0",
+    "inquirer": "^6.2.1",
     "log-symbols": "^2.2.0",
     "ora": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.6"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.3"
   },
   "engines": {
     "node": "8.x",

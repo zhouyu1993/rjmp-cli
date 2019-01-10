@@ -18,15 +18,14 @@ const pkg = require('../package.json')
 commander.version(pkg.version, '-v, --version')
 .command('init <name> [repository]')
 .action((name, repository) => {
-  console.log(repository)
-  if (!/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(name)) {
+  if (!/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(name.replace(/-/g, ''))) {
     log(logSymbols.error, chalk.red('Name contains illegal characters'))
 
     return
   }
 
   if(fs.existsSync(name)){
-    log(logSymbols.error, chalk.red(`Destination path '${data.name}' already exists.`))
+    log(logSymbols.error, chalk.red(`Destination path '${name}' already exists.`))
   } else {
     inquirer.prompt([
       /* Pass your questions in here */
@@ -41,7 +40,7 @@ commander.version(pkg.version, '-v, --version')
 
           // Do async stuff
           setTimeout(() => {
-            if (!/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(name)) {
+            if (!/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(name.replace(/-/g, ''))) {
               // Pass the return value in the done callback
               done('Name contains illegal characters')
 
@@ -110,25 +109,34 @@ commander.version(pkg.version, '-v, --version')
           },
         ],
       },
-    ]).then((data) => {
+    ]).then(data => {
       // Use user feedback for... whatever!!
 
-      const spinner = ora('Downloading templates...')
+      repositoryUrl = repository || 'zhouyu1993/rjmp-template'
+
+      const spinner = ora(`Downloading template... ${repositoryUrl}\n`)
       spinner.start()
 
-      downloadGitPepo(repository || 'zhouyu1993/rjmp-template', data.name, { clone: false, }, (err) => {
-        if (err) {
-          spinner.fail()
+      try {
+        downloadGitPepo(repositoryUrl, data.name, {
+          clone: false,
+        }, (err) => {
+          // Async
+          if (err) {
+            spinner.fail()
 
-          log(logSymbols.error, chalk.red(err))
-        } else {
-          spinner.succeed()
+            log(logSymbols.error, chalk.red(err))
+          } else {
+            spinner.succeed()
 
-          render(data).then((e) => {
-            install(data)
-          })
-        }
-      })
+            render(data).then((e) => {
+              install(data)
+            })
+          }
+        })
+      } catch (err) {
+        log(logSymbols.error, chalk.red(err))
+      }
     })
   }
 })

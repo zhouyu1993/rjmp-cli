@@ -1,4 +1,4 @@
-# rimp-cli
+# rjmp-cli
 
 [rjmp-cli](https://www.npmjs.com/package/rjmp-cli) is a `cli tool` for the WeChat mini App framework。
 

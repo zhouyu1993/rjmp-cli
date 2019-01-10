@@ -1,4 +1,4 @@
-# rimp-cli
+# rjmp-cli
 
 [rjmp-cli](https://www.npmjs.com/package/rjmp-cli) 是一个微信小程序框架的 cli 工具。
 
